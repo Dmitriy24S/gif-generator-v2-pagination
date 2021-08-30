@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Random Gif Generator v2 w/ pagination
+
+Random Gif Generator with pagination. Made with GIPHY API, React and CSS.
+
+[Live Demo](https://dmitriy24s.github.io/gif-generator-v2-pagination/) 👈
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
