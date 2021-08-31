@@ -100,7 +100,7 @@ function App() {
                   fetchGifs(offsetArr[pageIndex]);
                 }}
               >
-                <a href="!#" className="page-link">
+                <a href="#" className="page-link">
                   {pageNumber}
                 </a>
               </li>
