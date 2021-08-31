@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/gif-generator-v2-pagination/static/css/main.9ac2d17f.chunk.css",
-    "main.js": "/gif-generator-v2-pagination/static/js/main.af207c11.chunk.js",
-    "main.js.map": "/gif-generator-v2-pagination/static/js/main.af207c11.chunk.js.map",
+    "main.js": "/gif-generator-v2-pagination/static/js/main.c2aee9a9.chunk.js",
+    "main.js.map": "/gif-generator-v2-pagination/static/js/main.c2aee9a9.chunk.js.map",
     "runtime-main.js": "/gif-generator-v2-pagination/static/js/runtime-main.47f7902d.js",
     "runtime-main.js.map": "/gif-generator-v2-pagination/static/js/runtime-main.47f7902d.js.map",
     "static/js/2.cfd4d9d9.chunk.js": "/gif-generator-v2-pagination/static/js/2.cfd4d9d9.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.47f7902d.js",
     "static/js/2.cfd4d9d9.chunk.js",
     "static/css/main.9ac2d17f.chunk.css",
-    "static/js/main.af207c11.chunk.js"
+    "static/js/main.c2aee9a9.chunk.js"
   ]
 }
