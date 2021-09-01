@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { BiLoaderAlt } from "react-icons/bi";
+import Error from "./components/Error";
+import Item from "./components/Item";
+import Loader from "./components/Loader";
+import Pagination from "./components/Pagination";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const [dataArray, setDataArray] = useState([]);
@@ -23,7 +27,6 @@ function App() {
     setIsLoading(true);
     setIsError(false);
     try {
-      // const response = await fetch(GIPHY_API + value);
       const response = await fetch(
         `https://api.giphy.com/v1/gifs/search?api_key=tAEFUgagRjRNkU24orQdFB8EHMcNTUSe&limit=${itemsPerPage}&offset=${offsetNumber}&q=${value}`
       );
@@ -52,75 +55,36 @@ function App() {
     fetchGifs(0);
   };
 
-  if (isError) {
-    return (
-      <div className="error">
-        Unable to get Gifs, please try again later
-        <button
-          type="button"
-          className="close"
-          aria-label="Close"
-          onClick={() => {
-            setIsError(false);
-          }}
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    );
-  }
+  if (isError) <Error setIsError={setIsError} />;
 
   return (
     <div className="App">
       <h1 className="header">Gif Generator v2</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={value}
-          onChange={handleChange}
-          placeholder="Search gifs"
-          required
-          pattern="\S+.*"
-        />
-        <button>Search</button>
-      </form>
+      <SearchBar
+        handleSubmit={handleSubmit}
+        value={value}
+        handleChange={handleChange}
+      />
       <nav>
         <ul>
-          {pageNumbers.map((pageNumber, pageIndex) => {
-            let classes = "page-item ";
-            if (pageNumber === currentPage) {
-              classes += "active";
-            }
-            return (
-              <li
-                key={pageIndex}
-                className={classes}
-                onClick={() => {
-                  setCurrentPage(pageNumber);
-                  fetchGifs(offsetArr[pageIndex]);
-                }}
-              >
-                <a href="#" className="page-link">
-                  {pageNumber}
-                </a>
-              </li>
-            );
-          })}
+          {pageNumbers.map((pageNumber, pageIndex) => (
+            <Pagination
+              key={pageIndex}
+              pageNumber={pageNumber}
+              currentPage={currentPage}
+              pageIndex={pageIndex}
+              setCurrentPage={setCurrentPage}
+              fetchGifs={fetchGifs}
+              offsetArr={offsetArr}
+            />
+          ))}
         </ul>
       </nav>
-      {isLoading && (
-        <div className="loader">
-          <BiLoaderAlt size={100} />
-        </div>
-      )}
+      {isLoading && <Loader />}
       <div className="results">
-        {dataArray.map((gif) => {
-          return (
-            <div className="item" key={gif.id}>
-              <img src={gif.images.fixed_height.url} alt="" />
-            </div>
-          );
-        })}
+        {dataArray.map((gif) => (
+          <Item key={gif.id} gif={gif} />
+        ))}
       </div>
     </div>
   );
