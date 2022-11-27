@@ -1,5 +1,7 @@
 # Random Gif Generator v2 w/ pagination
 
+![Design preview for GIF Generator](./design-preview/design-preview.png)
+
 Random Gif Generator with pagination. Made with GIPHY API, React and CSS.
 
 [Live Demo](https://dmitriy24s.github.io/gif-generator-v2-pagination/) 👈
